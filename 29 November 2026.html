@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webinar 29 November 2026 | Fikri Organizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        min-height: 100vh;
+        background: linear-gradient(
+          120deg,
+          #effbf3 0%,
+          #e8f1fb 55%,
+          #dde9fb 100%
+        );
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 28px 14px;
+        color: #1f2937;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 420px;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 6px 24px rgba(30, 64, 120, 0.12);
+        padding: 22px 18px 20px;
+        text-align: center;
+        animation: fadeIn 0.28s ease both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== LOGO ===== */
+      .logo-wrap {
+        display: inline-block;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        padding: 6px 12px;
+        margin-bottom: 20px;
+      }
+      .logo-wrap img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      .logo-fallback {
+        display: none;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 1px;
+        color: #222;
+        padding: 10px 6px;
+      }
+      .logo-fallback span {
+        display: block;
+        margin-top: 4px;
+        font-size: 10px;
+        letter-spacing: 3px;
+        background: #f5b800;
+        color: #222;
+        padding: 2px 8px;
+      }
+
+      /* ===== JADWAL ===== */
+      .jadwal {
+        background: #f8fbff;
+        border: 1px solid #dbe7fb;
+        border-left: 4px solid #2563eb;
+        border-radius: 8px;
+        padding: 14px 16px;
+        margin-bottom: 18px;
+        text-align: left;
+      }
+      .jadwal h2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: #1d4ed8;
+        letter-spacing: 0.3px;
+        margin-bottom: 8px;
+      }
+      .jadwal ol {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .jadwal li {
+        font-size: 13px;
+        line-height: 1.7;
+        color: #374151;
+      }
+
+      h1 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.35;
+        color: #111827;
+        margin-bottom: 10px;
+      }
+      .sub {
+        font-size: 13px;
+        color: #6b7280;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      /* ===== TOMBOL ===== */
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 14px 12px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #edf3fe 0%, #dfe9fb 100%);
+        box-shadow: 0 2px 5px rgba(30, 64, 120, 0.15);
+        color: #1d4ed8;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          background 0.15s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(30, 64, 120, 0.2);
+        background: linear-gradient(90deg, #e3ecfd 0%, #d2e1fa 100%);
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      /* ===== KONTAK KENDALA TEKNIS ===== */
+      .kontak {
+        margin-top: 14px;
+        background: #eefaf2;
+        border: 1px solid #c9ecd6;
+        border-radius: 8px;
+        padding: 12px 14px;
+        text-align: left;
+      }
+      .kontak h2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: #166534;
+        margin-bottom: 8px;
+      }
+      .kontak ol {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .kontak li {
+        font-size: 13px;
+        line-height: 1.8;
+      }
+      .kontak a {
+        color: #15803d;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .kontak a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      /* ===== NOTIFIKASI ===== */
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #111827;
+        color: #fff;
+        font-size: 13px;
+        padding: 10px 18px;
+        border-radius: 8px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s ease;
+        z-index: 10;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 18px 12px;
+        }
+        .card {
+          padding: 18px 14px 18px;
+        }
+        h1 {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="logo-wrap">
+        <img
+          src="logo/logo_eo.png"
+          alt="Logo Fikri Organizer"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+        />
+        <div class="logo-fallback">
+          FIKRI ORGANIZER<span>SOLUSI EVENT ANDA</span>
+        </div>
+      </div>
+
+      <h1 id="judul"></h1>
+      <p class="sub" id="subjudul"></p>
+
+      <div class="jadwal">
+        <h2>Jadwal Pengerjaan</h2>
+        <ol id="jadwal"></ol>
+      </div>
+
+      <div class="links" id="links"></div>
+
+      <div class="kontak">
+        <h2>Kendala Teknis</h2>
+        <ol id="kontak"></ol>
+      </div>
+
+      <footer>&copy; <span id="tahun"></span> Fikri Organizer</footer>
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      /* =========================================================
+         DATA KEGIATAN — CUKUP UBAH BAGIAN INI UNTUK MENGGANTI LINK
+         ========================================================= */
+      const acara = {
+        judul: "Diabetic Woundcare Masterclass",
+        tanggal: "Minggu, 29 November 2026",
+        jadwal: {
+          pretest: "05:00 - 10:00 WIB",
+          posttest: "16:00 - 22:59 WIB",
+        },
+        link: {
+          zoom: "#",
+          tutorialPretest: "#",
+          tutorialPosttest: "#",
+          background: "#",
+          materi: "#",
+        },
+        zoomInfo: "",
+        kontak: [
+          { nama: "Eko Andrian", nomor: "0852-8646-9850", wa: "6285286469850" },
+          { nama: "Nayla", nomor: "0851-7506-0446", wa: "6285175060446" },
+        ],
+      };
+      /* ========================================================= */
+
+      document.getElementById("judul").textContent = acara.judul;
+      document.getElementById("subjudul").innerHTML =
+        "Fikri Organizer<br>" + acara.tanggal;
+      document.getElementById("tahun").textContent = new Date().getFullYear();
+      document.title = acara.judul + " | Fikri Organizer";
+
+      const daftarJadwal = document.getElementById("jadwal");
+      [
+        ["Pretest", acara.jadwal.pretest],
+        ["Post Test / Final Quiz", acara.jadwal.posttest],
+      ].forEach(([kegiatan, waktu]) => {
+        const li = document.createElement("li");
+        li.textContent = kegiatan + ": ";
+        const kuat = document.createElement("strong");
+        kuat.textContent = waktu;
+        li.appendChild(kuat);
+        daftarJadwal.appendChild(li);
+      });
+
+      const daftarLink = [
+        ["Zoom", acara.link.zoom, acara.zoomInfo || null],
+        ["Tutorial Pretest", acara.link.tutorialPretest, null],
+        ["Tutorial Post Test / Final Quiz", acara.link.tutorialPosttest, null],
+        ["Download Background Zoom", acara.link.background, null],
+        ["Materi", acara.link.materi, null],
+      ];
+
+      const wadah = document.getElementById("links");
+      daftarLink.forEach(([teks, url, salin]) => {
+        const a = document.createElement("a");
+        a.className = "btn";
+        a.textContent = teks;
+
+        if (url === "#") {
+          a.href = "#";
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            tampilkanToast("Link segera tersedia");
+          });
+        } else {
+          a.href = url;
+          if (/^https?:\/\//.test(url)) {
+            a.target = "_blank";
+            a.rel = "noopener";
+          }
+        }
+
+        if (salin) {
+          a.addEventListener("click", () => {
+            if (navigator.clipboard) {
+              navigator.clipboard
+                .writeText(salin)
+                .then(() => tampilkanToast("ID & Passcode Zoom disalin"))
+                .catch(() => {});
+            }
+          });
+        }
+        wadah.appendChild(a);
+      });
+
+      const daftarKontak = document.getElementById("kontak");
+      acara.kontak.forEach((k) => {
+        const li = document.createElement("li");
+        const wa = document.createElement("a");
+        wa.href = "https://wa.me/" + k.wa;
+        wa.target = "_blank";
+        wa.rel = "noopener";
+        wa.textContent = k.nama + " (" + k.nomor + ")";
+        li.appendChild(wa);
+        daftarKontak.appendChild(li);
+      });
+
+      function tampilkanToast(pesan) {
+        const el = document.getElementById("toast");
+        el.textContent = pesan;
+        el.classList.add("show");
+        setTimeout(() => el.classList.remove("show"), 2200);
+      }
+    </script>
+  </body>
+</html>
