@@ -126,6 +126,17 @@
         line-height: 1.7;
         margin-bottom: 20px;
       }
+      .zoom-info {
+        font-size: 12px;
+        line-height: 1.6;
+        color: #374151;
+        background: #f8fbff;
+        border: 1px solid #dbe7fb;
+        border-radius: 8px;
+        padding: 8px 10px;
+        margin-top: -5px;
+        text-align: center;
+      }
 
       /* ===== TOMBOL ===== */
       .links {
@@ -274,6 +285,7 @@
       const acara = {
         judul: "Diabetic Woundcare Masterclass",
         tanggal: "Minggu, 29 November 2026",
+        jam: "08.00 WIB – Selesai",
         jadwal: {
           pretest: "05:00 - 10:00 WIB",
           posttest: "16:00 - 22:59 WIB",
@@ -284,8 +296,13 @@
           tutorialPosttest: "#",
           background: "#",
           materi: "#",
+          kunciJawaban: "#",
         },
-        zoomInfo: "",
+        zoomTampil: "Meeting ID: 823 9409 1695<br>Passcode: webinar",
+        zoomInfo:
+          "Meeting ID: 823 9409 1695" +
+          String.fromCharCode(10) +
+          "Passcode: webinar",
         kontak: [
           { nama: "Eko Andrian", nomor: "0852-8646-9850", wa: "6285286469850" },
           { nama: "Nayla", nomor: "0851-7506-0446", wa: "6285175060446" },
@@ -295,7 +312,10 @@
 
       document.getElementById("judul").textContent = acara.judul;
       document.getElementById("subjudul").innerHTML =
-        "Fikri Organizer<br>" + acara.tanggal;
+        "Fikri Organizer<br>" +
+        acara.tanggal +
+        "<br>Jam Pelaksanaan: " +
+        acara.jam;
       document.getElementById("tahun").textContent = new Date().getFullYear();
       document.title = acara.judul + " | Fikri Organizer";
 
@@ -318,6 +338,7 @@
         ["Tutorial Post Test / Final Quiz", acara.link.tutorialPosttest, null],
         ["Download Background Zoom", acara.link.background, null],
         ["Materi", acara.link.materi, null],
+        ["Kunci Jawaban", acara.link.kunciJawaban, null],
       ];
 
       const wadah = document.getElementById("links");
@@ -351,6 +372,13 @@
           });
         }
         wadah.appendChild(a);
+
+        if (teks === "Zoom" && acara.zoomTampil) {
+          const info = document.createElement("div");
+          info.className = "zoom-info";
+          info.innerHTML = acara.zoomTampil;
+          wadah.appendChild(info);
+        }
       });
 
       const daftarKontak = document.getElementById("kontak");
