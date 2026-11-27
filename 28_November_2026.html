@@ -327,7 +327,7 @@
 
       const daftarJadwal = document.getElementById("jadwal");
       [
-        ["Pretest", acara.jadwal.pretest],
+        ["Pre Test", acara.jadwal.pretest],
         ["Post Test / Final Quiz", acara.jadwal.posttest],
       ].forEach(([kegiatan, waktu]) => {
         const li = document.createElement("li");
@@ -340,7 +340,7 @@
 
       const daftarLink = [
         ["Zoom", acara.link.zoom, acara.zoomInfo || null],
-        ["Tutorial Pretest", acara.link.tutorialPretest, null],
+        ["Tutorial Pre Test", acara.link.tutorialPretest, null],
         ["Tutorial Post Test / Final Quiz", acara.link.tutorialPosttest, null],
         ["Download Background Zoom", acara.link.background, null],
         ["Materi", acara.link.materi, null],
